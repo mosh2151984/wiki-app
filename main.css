@@ -1,9 +1,13 @@
 body{
   height: 100%;
   width: 100%;
-  background: url("http://wallpaperscraft.com/image/magic_ball_library_columns_castle_63093_1600x1200.jpg");
-  background-repeat: no-repeat;
+  background: url("http://wallpaperscraft.com/image/magic_ball_library_columns_castle_63093_1600x1200.jpg") no-repeat center ;
+  -webkit-background-size: 100% 100% ;
+  background-size: 100% 100%;
+  position: relative;
   background-attachment: fixed;
+  min-width: 300px;
+
 }
 .container{
   margin-left: 25%;
@@ -11,30 +15,84 @@ body{
   height: auto;;
   width: 50%;
   position: absolute;
-  background-color: rgba(255, 0, 0, 0.5);
+  background-color: rgba(250, 208, 33, 0.4);
   padding: 2%;
   text-align: center;
+  border-radius: 25px;
+}
+#input{
+  background: rgba(250, 250, 143,0.6);
+  color: black;
+  font-size: 110%;
+  border: none;
+  border-radius: 15px;
+  padding-left: 1%;
+}
+#input:focus,textarea:focus{
+  outline: none;
+
 }
 #result{
+float: left;
 overflow: hidden;
 width: 85%;
 height: auto;
 text-align: left;
 }
 #result li{
+  position: relative;
+  display: block;
+  float: left;
   color: #fff;
   background-color: rgba(0, 0, 0, 0.7);
   margin-bottom: 2%;
   padding: 1%;
-  font-size: 100%
+  font-size: 100%;
+  list-style:none;
 }
 #result li:hover{
 font-size: 110%;
 cursor: pointer;
 }
-
 #result a:link, a:visited {
     color: (internal value);
     text-decoration: none;;
     cursor: pointer;
+}
+i{
+  background-color: rgba(0, 0, 0, 0.7);
+  border: none;
+  padding: 1%;
+  margin: 1%;
+  color: #fff;
+  border-radius: 20px;
+}
+i:hover{
+font-size: 110%;
+cursor: pointer;
+}
+i a:link, a:visited {
+    color: #fff;
+    text-decoration: none;;
+    cursor: pointer;
+}
+@media  (max-width: 500px) {
+  .container{
+    width: 80%;
+    margin-left: 10%;
+    padding-left: 0%;
+
+  }
+  #result{
+    display: block;
+    width: 70%;
+    margin-left: 0%;
+  }
+  #result li{
+    margin-left: 0px;
+  }
+  #input{
+    overflow: hidden;
+    width: 70%
+  }
 }

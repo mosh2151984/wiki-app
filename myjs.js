@@ -2,7 +2,7 @@ $(function() {
     console.log( "ready!" );
 
     var search= "";
-      $( "#input" ).change(function () {
+      $( "#input" ).keyup(function () {
       search = this.value;
 
     });
@@ -12,33 +12,39 @@ $(function() {
       $("ul").empty();
       var api =
       "http://en.wikipedia.org/w/api.php?action=query&srlimit=20&list=search&srsearch="+ search +"&prop=extracts&format=json&exintro=";
-      // alert(api);
-      // console.log(api);
+
       if ( search !==""){
         $.ajax({
-        // request type ( GET or POST )
-    type: "GET",
 
-        // the URL to which the request is sent
-    url: api,
+                type: "GET",
 
+                url: api,
 
-        // The type of data that you're expecting back from the server
-    dataType: 'jsonp',
+                dataType: 'jsonp',
 
-    success: function( json ){
-          var list = json.query.search;
-          // console.log(list);
-          list.forEach(function (val) {
+                success: function( json ){
+                      var list = json.query.search;
+                      if (json.query.searchinfo.totalhits === 0) {
+                        alert("sorry no result found");
 
-            $("#result").append('<a target="_blank" href="https://en.wikipedia.org/wiki/'+ val.title +'"><li>Title : '+val.title+'<br>'+val.snippet +'</li></a>');
+                      }
+                      list.forEach(function (val) {
 
-          })
+                        $("#result")
+                        .append('<a target="_blank" href="https://en.wikipedia.org/wiki/'+ val.title +'"><li>Title : '+val.title+'<br>'+val.snippet +'</li></a>');
+
+                      });
         }
       });
     }
 
     });
 
+
+    $("#input").on('keyup', function (e) {
+        if (e.keyCode == 13) {
+            $("#search").click();
+        }
+    });
 
 });
