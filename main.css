@@ -1,0 +1,40 @@
+body{
+  height: 100%;
+  width: 100%;
+  background: url("http://wallpaperscraft.com/image/magic_ball_library_columns_castle_63093_1600x1200.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+.container{
+  margin-left: 25%;
+  margin-top: 10%;
+  height: auto;;
+  width: 50%;
+  position: absolute;
+  background-color: rgba(255, 0, 0, 0.5);
+  padding: 2%;
+  text-align: center;
+}
+#result{
+overflow: hidden;
+width: 85%;
+height: auto;
+text-align: left;
+}
+#result li{
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  margin-bottom: 2%;
+  padding: 1%;
+  font-size: 100%
+}
+#result li:hover{
+font-size: 110%;
+cursor: pointer;
+}
+
+#result a:link, a:visited {
+    color: (internal value);
+    text-decoration: none;;
+    cursor: pointer;
+}
